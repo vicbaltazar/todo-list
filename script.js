@@ -45,6 +45,9 @@ function addTodo(text) {
   const li = document.createElement("li");
   li.classList.add("todo-item");
 
+  const left = document.createElement("div");
+  left.classList.add("todo-left");
+
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
 
@@ -54,7 +57,11 @@ function addTodo(text) {
 
   const xpSpan = document.createElement("span");
   xpSpan.classList.add("xp-text");
-  xpSpan.textContent = ""; // vazio até concluir
+  xpSpan.textContent = "";
+
+  left.appendChild(checkbox);
+  left.appendChild(span);
+  left.appendChild(xpSpan);
 
   const deleteBtn = document.createElement("button");
   deleteBtn.classList.add("delete-btn");
@@ -65,12 +72,9 @@ function addTodo(text) {
     li.classList.toggle("completed", completed);
 
     if (completed) {
-      // marca a tarefa como "ganhou XP"
       xpSpan.textContent = "Ganhou XP!";
-      xp += 1;
-      await fetchPokemonByXp(); // muda sprite e nome com base no novo xp[web:42][web:47]
+      await gainXpAndMaybeEvolve();
     } else {
-      // se desmarcar, você pode decidir o que fazer (aqui tira o texto e não decrementa XP)
       xpSpan.textContent = "";
     }
   });
@@ -79,9 +83,8 @@ function addTodo(text) {
     list.removeChild(li);
   });
 
-  li.appendChild(checkbox);
-  li.appendChild(span);
-  li.appendChild(xpSpan);
+  li.appendChild(left);
   li.appendChild(deleteBtn);
   list.appendChild(li);
 }
+
