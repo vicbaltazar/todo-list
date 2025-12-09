@@ -1,0 +1,186 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top, #ffcb05 0, #2a75bb 40%, #0b1021 100%);
+}
+
+.app {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 24px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 16px;
+    color: #cc0000;
+    text-shadow: 1px 1px 0 #ffcb05;
+}
+
+.pokemon-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+pokemon-img {
+    width: 56px;
+    height: 56px;
+    image-rendering: pixelated;
+}
+#pokemon-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: #2a75bb;
+}
+
+#todo-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+#todo-input {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 2px solid #2a75bb;
+  outline: none;
+}
+
+#todo-input:focus {
+  border-color: #cc0000;
+}
+
+button {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  background: #cc0000;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #a00000;
+}
+
+#todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f5f5f5;
+  border-radius: 999px;
+  padding: 8px 12px;
+  border-left: 6px solid #ffcb05;
+}
+
+.todo-text {
+  flex: 1;
+  margin: 0 8px;
+}
+
+.xp-text {
+  font-size: 12px;
+  color: #2a75bb;
+  margin-left: 4px;
+}
+
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.todo-item.completed {
+  border-left-color: #2a75bb;
+}
+
+.delete-btn {
+  background: transparent;
+  color: #cc0000;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#todo-list {
+  list-style: none;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-item {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.todo-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.todo-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+.todo-text {
+  font-size: 15px;
+  color: #222222;
+}
+
+.xp-text {
+  font-size: 11px;
+  color: #2a75bb;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.delete-btn {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  color: #cc0000;
+}
+
+#todo-input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 2px solid #2a75bb;
+  font-size: 14px;
+}
