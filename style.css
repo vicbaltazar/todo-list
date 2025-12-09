@@ -42,8 +42,8 @@ h1 {
 }
 
 #pokemon-img {
-    width: 56px;
-    height: 56px;
+    width: 90px;
+    height: 90px;
     image-rendering: pixelated;
 }
 #pokemon-name {
@@ -211,4 +211,5 @@ button:hover {
   margin-top: 8px;
   font-size: 13px;
   color: #333;
+
 }
