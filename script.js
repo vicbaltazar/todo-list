@@ -5,21 +5,20 @@ const list  = document.getElementById("todo-list");
 const pokemonImg  = document.getElementById("pokemon-img");
 const pokemonName = document.getElementById("pokemon-name");
 
-
-// contador de XP (ou tarefas concluídas)
+// linha de evolução da Gothitelle
+const evolutionLine = ["gothita", "gothorita", "gothitelle"];
+let currentStage = 0;       // começa em gothita
 let xp = 0;
-// limite de pokémon para evitar ids inválidos (primeira geração, por exemplo)
-const MAX_POKEMON_ID = 151;
+const XP_PER_EVOLUTION = 3; // quantas tarefas para evoluir
 
-// função que busca um pokémon na PokéAPI com base no "xp"
-async function fetchPokemonByXp() {
-  // usa o xp para gerar um id entre 1 e MAX_POKEMON_ID
-  const id = (xp % MAX_POKEMON_ID) || 1;
-  const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+// busca o pokémon do estágio atual
+async function fetchCurrentPokemon() {
+  const name = evolutionLine[currentStage];
+  const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
 
   try {
     const response = await fetch(url);
-    const data = await response.json(); // contém name e sprites[web:40][web:47]
+    const data = await response.json();
 
     pokemonName.textContent = data.name.toUpperCase();
     pokemonImg.src = data.sprites.front_default || "";
@@ -29,8 +28,19 @@ async function fetchPokemonByXp() {
   }
 }
 
-// inicializa com algum pokémon usando xp = 0 -> id 1 (bulbasaur)
-fetchPokemonByXp();
+// ganha XP e verifica se evolui
+async function gainXpAndMaybeEvolve() {
+  xp += 1;
+
+  if (xp >= XP_PER_EVOLUTION && currentStage < evolutionLine.length - 1) {
+    xp = 0;
+    currentStage += 1;
+    await fetchCurrentPokemon();
+  }
+}
+
+// inicializa com o primeiro estágio da linha
+fetchCurrentPokemon();
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -88,4 +98,3 @@ function addTodo(text) {
   li.appendChild(deleteBtn);
   list.appendChild(li);
 }
-
