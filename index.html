@@ -1,40 +1,42 @@
 <!DOCTYPE html>
-<html lang="pt-Br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List Pokémon</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List Pokémon</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <div id="container">
+  <div class="app" id="container">
 
-        <h1>Poké To-Do List</h1>
+    <h1>Poké To-Do List</h1>
 
-        <div id="pokemon-box">
-           <img id="pokemon-img" scr="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/576.png" alt="Pokémon">
-            <span id="pokemon-name">Gothitelle</span> 
-        </div>
+    <div id="pokemon-box">
+      <img
+        id="pokemon-img"
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/576.png"
+        alt="Pokémon"
+      >
+      <span id="pokemon-name">GOTHITELLE</span>
     </div>
 
-        <form id="todo-form">
-  <input
-    type="text"
-    id="todo-input"
-    placeholder="Digite sua missão de treinador..."
+    <form id="todo-form">
+      <input
+        type="text"
+        id="todo-input"
+        placeholder="Digite sua missão de treinador..."
+      />
+      <button type="submit">Adicionar</button>
+    </form>
 
-  />
-  <button type="submit">Adicionar</button>
-</form>
+    <ul id="todo-list"></ul>
 
-<ul id="todo-list"></ul>
+    <p id="rodape">
+      Treine seu Pokémon completando tarefas!
+    </p>
 
-<p id="rodape">
-    Treine seu Pokémon completando tarefas!
-</p>
-
-    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
